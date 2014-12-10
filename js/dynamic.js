@@ -35,12 +35,40 @@ $(document).ready(function() {
 			effect: 'fade',
 			fadeSpeed: 250,
 			play: 10000,
-			pause: 2500
+			pause: 2500,
+			animationComplete: function(current) {
+				var current = $('.slider .container > div > div:nth-child('+current+')');
+				current.children('div').stop(true,true).delay(500).animate({
+					'left': '0'
+				}, 1000);
+				current.siblings().children('div').stop(true,true).delay(500).animate({
+					'left': '-746px'
+				}, 0);
+			}
 		});
 		slider();
+		$('.slider .container > div > div:nth-child(1) > div').css({
+			'left': '0'
+		});
 	}
 	var speed = 500;
-	$('.index h5, .introduction .nav').hover(
+	$('.index > ul li:first-child, .index .nav').hover(
+		function() {
+			$('.index .nav').stop(true,true).delay(speed).slideDown(speed);
+			$('.index').stop(true,true).delay(speed).animate({
+				'min-height': $('.index .nav').height()+42+'px'
+			}, 500);
+			$('.index h5 span, .index > ul li:first-child h2').addClass('active');
+		},
+		function() {
+			$('.index .nav').stop(true,true).delay(speed*2).slideUp(speed);
+			$('.index').stop(true,true).delay(speed*2).animate({
+				'min-height': '0'
+			}, 500);
+			$('.index h5 span, .index > ul li:first-child h2').removeClass('active');
+		}
+	);
+	/*$('.index h5, .introduction .nav').hover(
 		function() {
 			$('.introduction .nav h2').stop(true,true).slideUp(speed);
 			$('.introduction .nav ul').stop(true,true).delay(speed).slideDown(speed);
@@ -51,7 +79,7 @@ $(document).ready(function() {
 			$('.introduction .nav h2').stop(true,true).delay(speed*3).slideDown(speed);
 			$('.index h5 span').removeClass('active');
 		}
-	);
+	);*/
 	footer();
 	$('.content .nav > li > ul > li > a').bind('click', function() {
 		$('html, body').animate({scrollTop: $($(this).attr('href')).offset().top }, 500);

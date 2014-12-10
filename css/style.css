@@ -237,42 +237,106 @@ button::-moz-focus-inner {
     -moz-box-shadow:0 0 15px rgba(0,0,0,0.5);
     box-shadow:0 0 15px rgba(0,0,0,0.5);
 }
-.slider .container, .slider .containter > div > div {
+.slider .container, .slider .container > div > div {
+	position:relative;
 	clear:both;
 	overflow:hidden;
+	width:960px;
 	height:320px;
 }
-.slider .containter > div > div img {
+.slider .container > div > div img {
 	position:absolute;
 	left:0;
 	top:0;
 }
+.slider .container > div > div > div {
+	position:absolute;
+	left:-746px;
+	bottom:30px;
+	z-index:1;
+	color:#ffffff;
+	width:686px;
+	padding:16px 30px 8px;
+	background:url('../img/slider_div.png') repeat;
+}
+.slider .container > div > div > div h3 {
+	font-size:22px;
+	line-height:26px;
+	font-weight:normal;
+	font-family:'PT Serif', serif;
+	padding:0;
+	margin:0 0 17px;
+}
+.slider .container > div > div > div p {
+	font-size:13px;
+	line-height:16px;
+	margin:0 0 16px;
+}
 .slider .pagination {
 	position:absolute;
-	right:11px;
-	top:105px;
+	right:10px;
+	top:10px;
 	z-index:100;
 	margin:0;
 }
 .slider .pagination li {
-	margin:10px 0 0;
+	float:left;
+	margin:0 0 0 8px;
 }
 .slider .pagination li:first-child {
-	margin-top:0;
+	margin-left:0;
 }
 .slider .pagination li a {
 	display:block;
-	width:20px;
-	height:20px;
-	background:#ffffff;
+	width:12px;
+	height:12px;
+	background:#ecede9;
 }
 .slider .pagination li.current a {
-	background:#003671;
+	background:#214c78;
 }
 .index {
+	position:relative;
 	background:#f0f0f0;
 	border-top:1px solid #cccccc;
 	border-bottom:1px solid #cccccc;
+}
+.index .nav {
+	display:none;
+	position:absolute;
+	left:50%;
+	top:28px;
+	z-index:10;
+	width:336px;
+	margin-left:-192px;
+	background:#f0f0f0;
+}
+.index .nav ul {
+	position:relative;
+	padding:46px 0 0 48px;
+	margin:0 0 24px;
+}
+.index .nav ul li {
+	font-size:15px;
+	line-height:18px;
+	margin:0 0 10px;
+}
+.index .nav ul li a {
+	position:relative;
+	display:inline-block;
+	color:#003671;
+	padding:0 0 0 22px;
+}
+.index .nav ul li a:before {
+	content:'»';
+	position:absolute;
+	left:0;
+	top:0;
+	font-weight:bold;
+}
+.index .nav ul a:hover {
+	color:#3399ff;
+	text-decoration:none;
 }
 .index > ul {
 	clear:both;
@@ -298,6 +362,12 @@ button::-moz-focus-inner {
 	font-family:'PT Serif', serif;
 	padding:0;
 	margin:0 0 18px;
+}
+.index h2.active {
+	color:#3399ff;
+}
+.index h2 span {
+	padding:0 0 0 18px;
 }
 .index > ul > li > img {
 	width:100%;
