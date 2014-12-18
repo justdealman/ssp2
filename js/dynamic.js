@@ -96,13 +96,23 @@ $(document).ready(function() {
 			}
 			if ( $(window).width() > 1280 ) {
 				$('.content .nav').css({
+					'top': '0',
+					'bottom': 'auto',
 					'margin-left': '-500px'
+				});
+			}
+			if ( $(document).scrollTop() > $(document).height()-$('.content .nav').outerHeight()-$('.footer').height()-10 ) {
+				$('.content .nav').css({
+					'top': 'auto',
+					'bottom': $(document).scrollTop()-($(document).height()-$(window).height()-$('.footer').height()-10)+'px'
 				});
 			}
 		}
 		else {
 			$('.content .nav').removeClass('fixed');
 			$('.content .nav').css({
+				'top': '0',
+				'bottom': 'auto',
 				'margin-left': '0'
 			})
 		}
