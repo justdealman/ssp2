@@ -36,6 +36,7 @@ $(document).ready(function() {
 			fadeSpeed: 250,
 			play: 10000,
 			pause: 2500,
+			crossfade: true,
 			animationComplete: function(current) {
 				var current = $('.slider .container > div > div:nth-child('+current+')');
 				current.children('div').stop(true,true).delay(500).animate({
